@@ -1,0 +1,24 @@
+branches:
+    only:
+        - master
+        - 1.x
+
+language: php
+
+php:
+    - 7.1
+    - 7.2
+    - 7.3
+
+cache:
+    directories:
+        - $HOME/.composer/cache/files
+
+matrix:
+    fast_finish: true
+
+install:
+    - composer update --prefer-dist --no-progress --no-interaction
+
+script:
+    - vendor/bin/simple-phpunit

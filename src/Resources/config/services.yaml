@@ -1,0 +1,16 @@
+services:
+    Runroom\TranslationBundle\Service\TranslationService:
+        public: false
+        arguments:
+            $repository: '@Doctrine\ORM\EntityRepository'
+            $translator: '@translator'
+
+    Runroom\TranslationBundle\Twig\TranslationExtension:
+        public: false
+        arguments:
+            $service: '@Runroom\TranslationBundle\Service\TranslationService'
+        tags: [twig.extension]
+
+    Doctrine\ORM\EntityRepository:
+        factory: ['@Doctrine\ORM\EntityManagerInterface', getRepository]
+        arguments: [Runroom\TranslationBundle\Entity\Translation]

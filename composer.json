@@ -1,0 +1,50 @@
+{
+    "name": "runroom/translation-bundle",
+    "type": "symfony-bundle",
+    "description": "Manage translations on the Sonata Admin interface",
+    "keywords": ["translation", "symfony", "doctrine", "admin", "sonata"],
+    "homepage": "https://github.com/runroom/TranslationBundle",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Runroom",
+            "email": "runroom@runroom.com",
+            "homepage": "https://www.runroom.com"
+        }
+    ],
+    "require": {
+        "php": "^7.1",
+        "a2lix/translation-form-bundle": "^2.4",
+        "doctrine/orm": "^2.6",
+        "knplabs/doctrine-behaviors": "^1.6",
+        "sonata-project/admin-bundle": "^3.49",
+        "symfony/config": "^3.4 || ^4.3",
+        "symfony/dependency-injection": "^3.4 || ^4.3",
+        "symfony/form": "^3.4 || ^4.3",
+        "symfony/http-kernel": "^3.4 || ^4.3",
+        "symfony/validator": "^3.4 || ^4.3",
+        "symfony/translation": "^3.4 || ^4.3",
+        "symfony/yaml": "^3.4 || ^4.3"
+    },
+    "require-dev": {
+        "symfony/phpunit-bridge": "^4.3"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.x-dev"
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Runroom\\TranslationBundle\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Runroom\\TranslationBundle\\Tests\\": "tests/"
+        }
+    }
+}
