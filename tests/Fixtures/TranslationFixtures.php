@@ -17,14 +17,14 @@ use Runroom\TranslationBundle\Entity\Translation;
 
 class TranslationFixtures
 {
-    public const ID = 'my.key';
+    public const KEY = 'my.key';
     public const VALUE = 'My value';
 
     public static function create(): Translation
     {
         $translation = new Translation();
 
-        $translation->setId(self::ID);
+        $translation->setKey(self::KEY);
         $translation->translate()->setValue(self::VALUE);
 
         return $translation;

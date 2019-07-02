@@ -43,14 +43,12 @@ class TranslationServiceTest extends TestCase
     {
         $translation = TranslationFixtures::create();
 
-        $this->repository->find(TranslationFixtures::ID)->willReturn($translation);
-        $this->translator->trans(TranslationFixtures::ID, [], null, 'en')->shouldNotBeCalled();
+        $this->repository->findOneBy(['key' => TranslationFixtures::KEY])->willReturn($translation);
+        $this->translator->trans(TranslationFixtures::KEY, [], null, 'en')->shouldNotBeCalled();
 
-        $result = $this->service->translate(TranslationFixtures::ID, [], 'en');
+        $result = $this->service->translate(TranslationFixtures::KEY, [], 'en');
 
         $this->assertSame(TranslationFixtures::VALUE, $result);
-        $this->assertSame(TranslationFixtures::ID, $translation->getId());
-        $this->assertSame(TranslationFixtures::VALUE, $translation->getValue());
     }
 
     /**
@@ -58,12 +56,12 @@ class TranslationServiceTest extends TestCase
      */
     public function itReturnsAStringTranslatedByTheTranslatorComponent()
     {
-        $this->repository->find(TranslationFixtures::ID)->willReturn(null);
-        $this->translator->trans(TranslationFixtures::ID, [], null, 'en')
-            ->willReturn(TranslationFixtures::VALUE);
+        $this->repository->findOneBy(['key' => TranslationFixtures::KEY])->willReturn(null);
+        $this->translator->trans(TranslationFixtures::KEY, [], null, 'en')
+            ->willReturn('another_translation');
 
-        $result = $this->service->translate(TranslationFixtures::ID, [], 'en');
+        $result = $this->service->translate(TranslationFixtures::KEY, [], 'en');
 
-        $this->assertSame(TranslationFixtures::VALUE, $result);
+        $this->assertSame('another_translation', $result);
     }
 }

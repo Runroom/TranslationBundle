@@ -27,14 +27,14 @@ class TranslationService
         $this->translator = $translator;
     }
 
-    public function translate(string $id, array $parameters = [], string $locale = null): string
+    public function translate(string $key, array $parameters = [], string $locale = null): string
     {
-        $translation = $this->repository->find($id);
+        $translation = $this->repository->findOneBy(['key' => $key]);
 
         if (null !== $translation) {
             return strtr($translation->translate($locale)->getValue(), $parameters);
         }
 
-        return $this->translator->trans($id, $parameters, null, $locale);
+        return $this->translator->trans($key, $parameters, null, $locale);
     }
 }

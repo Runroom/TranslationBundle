@@ -35,9 +35,9 @@ class TranslationExtensionTest extends TestCase
      */
     public function itTranslates()
     {
-        $this->service->translate(TranslationFixtures::ID, [], null)->willReturn(TranslationFixtures::VALUE);
+        $this->service->translate(TranslationFixtures::KEY, [], null)->willReturn(TranslationFixtures::VALUE);
 
-        $result = $this->extension->translate(TranslationFixtures::ID);
+        $result = $this->extension->translate(TranslationFixtures::KEY);
 
         $this->assertSame(TranslationFixtures::VALUE, $result);
     }

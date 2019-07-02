@@ -33,8 +33,8 @@ class TranslationExtension extends AbstractExtension
         ];
     }
 
-    public function translate(string $id, array $parameters = [], string $locale = null): string
+    public function translate(string $key, array $parameters = [], string $locale = null): string
     {
-        return $this->service->translate($id, $parameters, $locale);
+        return $this->service->translate($key, $parameters, $locale);
     }
 }

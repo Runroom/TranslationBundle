@@ -27,7 +27,7 @@ class TranslationAdmin extends AbstractAdmin
     protected $datagridValues = [
         '_page' => 1,
         '_sort_order' => 'ASC',
-        '_sort_by' => 'id',
+        '_sort_by' => 'key',
     ];
 
     protected function configureRoutes(RouteCollection $collection): void
@@ -39,14 +39,14 @@ class TranslationAdmin extends AbstractAdmin
     protected function configureDatagridFilters(DatagridMapper $datagridMapper): void
     {
         $datagridMapper
-            ->add('id')
+            ->add('key')
             ->add('translations.value', null, ['label' => 'Value']);
     }
 
     protected function configureListFields(ListMapper $listMapper): void
     {
         $listMapper
-            ->addIdentifier('id')
+            ->addIdentifier('key')
             ->add('value', 'html', [
                 'sortable' => true,
                 'sort_field_mapping' => ['fieldName' => 'value'],
@@ -57,7 +57,7 @@ class TranslationAdmin extends AbstractAdmin
     protected function configureFormFields(FormMapper $formMapper): void
     {
         $formMapper
-            ->add('id')
+            ->add('key')
             ->add('translations', TranslationsType::class, [
                 'label' => false,
                 'required' => false,

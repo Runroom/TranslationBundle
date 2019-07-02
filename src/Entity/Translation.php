@@ -25,25 +25,36 @@ class Translation
 
     /**
      * @ORM\Id
-     * @ORM\Column(type="string")
+     * @ORM\GeneratedValue
+     * @ORM\Column(type="integer")
      */
     private $id;
 
+    /**
+     * @ORM\Column(name="translation_key", type="string", unique=true)
+     */
+    private $key;
+
     public function __toString(): string
     {
-        return (string) $this->getId();
+        return (string) $this->getKey();
     }
 
-    public function setId(?string $id): self
+    public function getId(): ?int
     {
-        $this->id = $id;
+        return $this->id;
+    }
+
+    public function setKey(?string $key): self
+    {
+        $this->key = $key;
 
         return $this;
     }
 
-    public function getId(): ?string
+    public function getKey(): ?string
     {
-        return $this->id;
+        return $this->key;
     }
 
     public function getValue(): ?string
