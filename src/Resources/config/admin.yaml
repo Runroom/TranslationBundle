@@ -3,5 +3,7 @@ services:
         class: Runroom\TranslationBundle\Admin\TranslationAdmin
         public: true
         arguments: [~, Runroom\TranslationBundle\Entity\Translation, ~]
+        calls:
+            - [setCacheService, ['@Runroom\TranslationBundle\Service\TranslationCacheService']]
         tags:
             - { name: sonata.admin, manager_type: orm, label: 'Translations' }

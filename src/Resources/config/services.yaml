@@ -2,8 +2,18 @@ services:
     Runroom\TranslationBundle\Service\TranslationService:
         public: false
         arguments:
-            $repository: '@Doctrine\ORM\EntityRepository'
             $translator: '@translator'
+            $cache: '@Runroom\TranslationBundle\Service\TranslationCacheService'
+            $requestStack: '@request_stack'
+
+    Runroom\TranslationBundle\Service\TranslationCacheService:
+        public: false
+        arguments:
+            $repository: '@Runroom\TranslationBundle\Repository\TranslationRepository'
+            $cache: '@Symfony\Component\Cache\Adapter\PhpArrayAdapter'
+        tags:
+            - { name: kernel.cache_warmer, priority: 0 }
+            - kernel.cache_clearer
 
     Runroom\TranslationBundle\Twig\TranslationExtension:
         public: false
@@ -11,6 +21,22 @@ services:
             $service: '@Runroom\TranslationBundle\Service\TranslationService'
         tags: [twig.extension]
 
-    Doctrine\ORM\EntityRepository:
-        factory: ['@Doctrine\ORM\EntityManagerInterface', getRepository]
-        arguments: [Runroom\TranslationBundle\Entity\Translation]
+    Runroom\TranslationBundle\Repository\TranslationRepository:
+        public: false
+        arguments: ['@Doctrine\ORM\EntityManagerInterface']
+
+    Runroom\TranslationBundle\Command\TranslationCommand:
+        public: false
+        arguments:
+            $translator: '@translator'
+            $repository: '@Runroom\TranslationBundle\Repository\TranslationRepository'
+            $cache: '@Runroom\TranslationBundle\Service\TranslationCacheService'
+            $locales: '%locales%'
+        tags: [console.command]
+
+    Symfony\Component\Cache\Adapter\PhpArrayAdapter:
+        arguments:
+            - '%kernel.cache_dir%/translations.cache.php'
+            - '@Symfony\Component\Cache\Adapter\ArrayAdapter'
+
+    Symfony\Component\Cache\Adapter\ArrayAdapter: ~

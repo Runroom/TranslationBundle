@@ -15,6 +15,7 @@ namespace Runroom\TranslationBundle\Admin;
 
 use A2lix\TranslationFormBundle\Form\Type\TranslationsType;
 use FOS\CKEditorBundle\Form\Type\CKEditorType;
+use Runroom\TranslationBundle\Service\TranslationCacheService;
 use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
@@ -29,6 +30,23 @@ class TranslationAdmin extends AbstractAdmin
         '_sort_order' => 'ASC',
         '_sort_by' => 'key',
     ];
+
+    private $cache;
+
+    public function setCacheService(TranslationCacheService $cache): void
+    {
+        $this->cache = $cache;
+    }
+
+    public function preUpdate($translation): void
+    {
+        $translation->setModified(true);
+    }
+
+    public function postUpdate($translation): void
+    {
+        $this->cache->warmUpTranslations();
+    }
 
     protected function configureRoutes(RouteCollection $collection): void
     {

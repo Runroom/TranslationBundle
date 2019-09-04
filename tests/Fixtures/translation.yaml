@@ -1,0 +1,28 @@
+Runroom\TranslationBundle\Entity\Translation:
+    translation_en_{1..10}:
+        key: '<uuid()>'
+        modified: 0
+
+    translation_es_{1..5}:
+        key: '<uuid()>'
+        modified: 0
+
+    modified_translation_en:
+        key: 'translation.key'
+        modified: 1
+
+Runroom\TranslationBundle\Entity\TranslationTranslation:
+    translation_translations_{@translation_en_*}:
+        translatable: '<current()>'
+        value: <randomHtml()>
+        locale: en
+
+    translation_translations_{@translation_es_*}:
+        translatable: '<current()>'
+        value: <randomHtml()>
+        locale: es
+
+    modified_translation_translations_{@modified_translation_en}:
+        translatable: '<current()>'
+        value: modified value
+        locale: en
