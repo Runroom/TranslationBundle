@@ -13,23 +13,29 @@ declare(strict_types=1);
 
 namespace Runroom\TranslationBundle\Service;
 
-use Doctrine\ORM\EntityRepository;
+use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\Translation\TranslatorInterface;
 
 class TranslationService
 {
-    private $repository;
     private $translator;
+    private $cache;
+    private $requestStack;
 
-    public function __construct(EntityRepository $repository, TranslatorInterface $translator)
-    {
-        $this->repository = $repository;
+    public function __construct(
+        TranslatorInterface $translator,
+        TranslationCacheService $cache,
+        RequestStack $requestStack
+    ) {
         $this->translator = $translator;
+        $this->cache = $cache;
+        $this->requestStack = $requestStack;
     }
 
     public function translate(string $key, array $parameters = [], string $locale = null): string
     {
-        $translation = $this->repository->findOneBy(['key' => $key]);
+        $locale = $locale ?? $this->requestStack->getCurrentRequest()->getLocale();
+        $translation = $this->cache->getItem($key);
 
         if (null !== $translation) {
             return strtr($translation->translate($locale)->getValue(), $parameters);

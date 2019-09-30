@@ -1,0 +1,15 @@
+framework:
+    test: true
+    secret: secret
+
+doctrine:
+    dbal:
+        driver: pdo_sqlite
+        path: ':memory:'
+        memory: true
+    orm:
+        auto_mapping: true
+
+parameters:
+    locale: 'en'
+    locales: ['en', 'es', 'ca']

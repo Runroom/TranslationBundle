@@ -35,6 +35,11 @@ class Translation
      */
     private $key;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $modified = false;
+
     public function __toString(): string
     {
         return (string) $this->getKey();
@@ -60,5 +65,17 @@ class Translation
     public function getValue(): ?string
     {
         return $this->translate()->getValue();
+    }
+
+    public function setModified(bool $modified): self
+    {
+        $this->modified = $modified;
+
+        return $this;
+    }
+
+    public function getModified(): bool
+    {
+        return $this->modified;
     }
 }
