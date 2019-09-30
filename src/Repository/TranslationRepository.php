@@ -64,7 +64,7 @@ class TranslationRepository
                     $translation->setKey($key);
                 }
 
-                if (false === $translation->getModified() || null === $translation->getModified()) {
+                if (false === $translation->getModified()) {
                     foreach ($locales as $locale) {
                         if (\array_key_exists($key, $catalogues[$locale])) {
                             $translation->translate($locale)->setValue($catalogues[$locale][$key]);

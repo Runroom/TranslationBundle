@@ -36,9 +36,9 @@ class Translation
     private $key;
 
     /**
-     * @ORM\Column(type="boolean", nullable=true)
+     * @ORM\Column(type="boolean")
      */
-    private $modified;
+    private $modified = false;
 
     public function __toString(): string
     {
@@ -74,7 +74,7 @@ class Translation
         return $this;
     }
 
-    public function getModified(): ?bool
+    public function getModified(): bool
     {
         return $this->modified;
     }
