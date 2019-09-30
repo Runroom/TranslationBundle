@@ -12,17 +12,17 @@ Runroom\TranslationBundle\Entity\Translation:
         modified: 1
 
 Runroom\TranslationBundle\Entity\TranslationTranslation:
-    translation_translations_{@translation_en_*}:
-        translatable: '<current()>'
+    translation_translations_{1..10}:
+        translatable: '@translation_en_<current()>'
         value: <randomHtml()>
         locale: en
 
-    translation_translations_{@translation_es_*}:
-        translatable: '<current()>'
+    translation_translations_{1..5}:
+        translatable: '@translation_es_<current()>'
         value: <randomHtml()>
         locale: es
 
-    modified_translation_translations_{@modified_translation_en}:
-        translatable: '<current()>'
+    modified_translation_translations:
+        translatable: '@modified_translation_en'
         value: modified value
         locale: en

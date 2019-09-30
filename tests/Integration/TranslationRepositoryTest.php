@@ -15,7 +15,7 @@ namespace Runroom\TranslationBundle\Tests\Integration;
 
 use Runroom\TranslationBundle\Entity\Translation;
 use Runroom\TranslationBundle\Repository\TranslationRepository;
-use Tests\Runroom\BaseBundle\TestCase\DoctrineIntegrationTestBase;
+use Runroom\TranslationBundle\Tests\TestCase\DoctrineIntegrationTestBase;
 
 class TranslationRepositoryTest extends DoctrineIntegrationTestBase
 {
