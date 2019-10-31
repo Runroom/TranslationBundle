@@ -18,11 +18,7 @@ use Symfony\Component\Translation\TranslatorInterface;
 
 class TranslationService
 {
-
     use \Symfony\Contracts\Translation\TranslatorTrait;
-
-    private const COUNT_KEY = '%count%';
-    private const COUNT_DELIMITER = '|';
 
     private $translator;
     private $cache;
