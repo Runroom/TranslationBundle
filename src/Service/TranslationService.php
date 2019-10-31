@@ -20,7 +20,7 @@ class TranslationService
 {
     private const COUNT_KEY = '%count%';
     private const COUNT_DELIMITER = '|';
-    
+
     private $translator;
     private $cache;
     private $requestStack;
@@ -44,7 +44,7 @@ class TranslationService
             $value = $translation->translate($locale)->getValue();
             if (array_key_exists(self::COUNT_KEY, $parameters)) {
                 $valueArray = explode(self::COUNT_DELIMITER, $value);
-                $value = ($parameters[self::COUNT_KEY] <= 1) ? $valueArray[0] :$valueArray[1];
+                $value = ($parameters[self::COUNT_KEY] > 1 && array_key_exists(1, $valueArray)) ? $valueArray[1] : $valueArray[0];
             }
 
             return strtr($value, $parameters);
