@@ -18,6 +18,8 @@ use Symfony\Component\Translation\TranslatorInterface;
 
 class TranslationService
 {
+    use \Symfony\Contracts\Translation\TranslatorTrait;
+
     private $translator;
     private $cache;
     private $requestStack;
@@ -38,7 +40,7 @@ class TranslationService
         $translation = $this->cache->getItem($key);
 
         if (null !== $translation) {
-            return strtr($translation->translate($locale)->getValue(), $parameters);
+            return $this->trans($translation->translate($locale)->getValue(), $parameters, null, $locale);
         }
 
         return $this->translator->trans($key, $parameters, null, $locale);
