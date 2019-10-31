@@ -18,6 +18,9 @@ use Symfony\Component\Translation\TranslatorInterface;
 
 class TranslationService
 {
+
+    use \Symfony\Contracts\Translation\TranslatorTrait;
+
     private const COUNT_KEY = '%count%';
     private const COUNT_DELIMITER = '|';
 
@@ -41,13 +44,7 @@ class TranslationService
         $translation = $this->cache->getItem($key);
 
         if (null !== $translation) {
-            $value = $translation->translate($locale)->getValue();
-            if (array_key_exists(self::COUNT_KEY, $parameters)) {
-                $valueArray = explode(self::COUNT_DELIMITER, $value);
-                $value = ($parameters[self::COUNT_KEY] > 1 && array_key_exists(1, $valueArray)) ? $valueArray[1] : $valueArray[0];
-            }
-
-            return strtr($value, $parameters);
+            return $this->trans($translation->translate($locale)->getValue(), $parameters, null, $locale);
         }
 
         return $this->translator->trans($key, $parameters, null, $locale);
