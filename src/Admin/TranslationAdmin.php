@@ -80,18 +80,7 @@ class TranslationAdmin extends AbstractAdmin
                 'label' => false,
                 'required' => false,
                 'fields' => [
-                    'value' => [
-                        'field_type' => CKEditorType::class,
-                        'config' => [
-                            'entities' => false,
-                            'enterMode' => 'CKEDITOR.ENTER_BR',
-                            'toolbar' => [
-                                ['Bold', 'Italic'],
-                                ['RemoveFormat'],
-                                ['Link', 'Unlink'],
-                            ],
-                        ],
-                    ],
+                    'value' => []
                 ],
                 'constraints' => [
                     new Assert\Valid(),
