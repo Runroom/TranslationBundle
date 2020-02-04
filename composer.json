@@ -13,24 +13,24 @@
         }
     ],
     "require": {
-        "php": "^7.1",
+        "php": "^7.3",
         "a2lix/translation-form-bundle": "^2.4",
-        "doctrine/orm": "^2.6",
+        "doctrine/orm": "^2.7",
         "knplabs/doctrine-behaviors": "^1.6",
-        "sonata-project/admin-bundle": "^3.49",
-        "symfony/config": "^3.4 || ^4.3",
-        "symfony/dependency-injection": "^3.4 || ^4.3",
-        "symfony/form": "^3.4 || ^4.3",
-        "symfony/http-kernel": "^3.4 || ^4.3",
-        "symfony/validator": "^3.4 || ^4.3",
-        "symfony/translation": "^3.4 || ^4.3",
-        "symfony/yaml": "^3.4 || ^4.3"
+        "sonata-project/admin-bundle": "^3.58",
+        "symfony/config": "^4.4 || ^5.0",
+        "symfony/dependency-injection": "^4.4 || ^5.0",
+        "symfony/form": "^4.4 || ^5.0",
+        "symfony/http-kernel": "^4.4 || ^5.0",
+        "symfony/validator": "^4.4 || ^5.0",
+        "symfony/translation": "^4.4 || ^5.0",
+        "symfony/yaml": "^4.4 || ^5.0"
     },
     "require-dev": {
-        "doctrine/doctrine-bundle": "^1.11",
-        "doctrine/doctrine-fixtures-bundle": "^3.1",
-        "symfony/phpunit-bridge": "^4.3",
-        "symfony/framework-bundle": "^3.4 || ^4.3",
+        "doctrine/doctrine-bundle": "^2.0",
+        "doctrine/doctrine-fixtures-bundle": "^3.3",
+        "symfony/phpunit-bridge": "^5.0",
+        "symfony/framework-bundle": "^4.4 || ^5.0",
         "theofidry/alice-data-fixtures": "^1.1"
     },
     "config": {

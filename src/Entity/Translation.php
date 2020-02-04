@@ -62,9 +62,9 @@ class Translation
         return $this->key;
     }
 
-    public function getValue(): ?string
+    public function getValue(string $locale = null): ?string
     {
-        return $this->translate()->getValue();
+        return $this->translate($locale, false)->getValue();
     }
 
     public function setModified(bool $modified): self
