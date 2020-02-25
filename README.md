@@ -9,8 +9,8 @@ TranslationBundle
 [![Monthly Downloads](https://poser.pugx.org/runroom/translation-bundle/d/monthly)](https://packagist.org/packages/runroom/translation-bundle)
 [![Daily Downloads](https://poser.pugx.org/runroom/translation-bundle/d/daily)](https://packagist.org/packages/runroom/translation-bundle)
 
-![ci](https://github.com/Runroom/TranslationBundle/workflows/ci/badge.svg?branch=2.x)
-![qa](https://github.com/Runroom/TranslationBundle/workflows/qa/badge.svg?branch=2.x)
+![ci](https://github.com/Runroom/TranslationBundle/workflows/ci/badge.svg?branch=master)
+![qa](https://github.com/Runroom/TranslationBundle/workflows/qa/badge.svg?branch=master)
 
 ## Installation
 
