@@ -16,6 +16,9 @@ namespace Runroom\TranslationBundle\Service;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\Translation\TranslatorInterface;
 
+/**
+ * @final
+ */
 class TranslationService
 {
     private $translator;

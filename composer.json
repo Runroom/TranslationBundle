@@ -2,7 +2,13 @@
     "name": "runroom/translation-bundle",
     "type": "symfony-bundle",
     "description": "Manage translations on the Sonata Admin interface",
-    "keywords": ["translation", "symfony", "doctrine", "admin", "sonata"],
+    "keywords": [
+        "translation",
+        "symfony",
+        "doctrine",
+        "admin",
+        "sonata"
+    ],
     "homepage": "https://github.com/runroom/TranslationBundle",
     "license": "MIT",
     "authors": [
@@ -16,21 +22,31 @@
         "php": "^7.3",
         "a2lix/translation-form-bundle": "^2.4",
         "doctrine/orm": "^2.7",
-        "knplabs/doctrine-behaviors": "^1.6",
-        "sonata-project/admin-bundle": "^3.58",
+        "friendsofsymfony/ckeditor-bundle": "^1.2 || ^2.2",
+        "knplabs/doctrine-behaviors": "^2.0",
+        "sonata-project/admin-bundle": "^3.61",
         "symfony/config": "^4.4 || ^5.0",
         "symfony/dependency-injection": "^4.4 || ^5.0",
         "symfony/form": "^4.4 || ^5.0",
         "symfony/http-kernel": "^4.4 || ^5.0",
-        "symfony/validator": "^4.4 || ^5.0",
         "symfony/translation": "^4.4 || ^5.0",
-        "symfony/yaml": "^4.4 || ^5.0"
+        "symfony/validator": "^4.4 || ^5.0",
+        "symfony/yaml": "^4.4 || ^5.0",
+        "twig/twig": "^2.12 || ^3.0"
     },
     "require-dev": {
         "doctrine/doctrine-bundle": "^2.0",
         "doctrine/doctrine-fixtures-bundle": "^3.3",
-        "symfony/phpunit-bridge": "^5.0",
+        "ergebnis/composer-normalize": "^2.2",
+        "friendsofphp/php-cs-fixer": "^2.16",
+        "jangregor/phpstan-prophecy": "^0.6",
+        "phpstan/phpstan": "^0.12",
+        "phpstan/phpstan-doctrine": "^0.12",
+        "phpstan/phpstan-phpunit": "^0.12",
+        "phpstan/phpstan-symfony": "^0.12",
+        "phpunit/phpunit": "^9.0",
         "symfony/framework-bundle": "^4.4 || ^5.0",
+        "symfony/phpunit-bridge": "^5.0",
         "theofidry/alice-data-fixtures": "^1.1"
     },
     "config": {
@@ -50,5 +66,9 @@
         "psr-4": {
             "Runroom\\TranslationBundle\\Tests\\": "tests/"
         }
+    },
+    "scripts": {
+        "cs-fixer-diff": "php-cs-fixer fix --ansi --verbose --diff --dry-run",
+        "phpstan": "phpstan analyse --level=5 --no-progress src tests"
     }
 }

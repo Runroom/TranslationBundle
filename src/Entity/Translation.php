@@ -14,14 +14,17 @@ declare(strict_types=1);
 namespace Runroom\TranslationBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Knp\DoctrineBehaviors\Contract\Entity\TranslatableInterface;
 use Knp\DoctrineBehaviors\Model as ORMBehaviors;
 
 /**
+ * @final
+ *
  * @ORM\Entity
  */
-class Translation
+class Translation implements TranslatableInterface
 {
-    use ORMBehaviors\Translatable\Translatable;
+    use ORMBehaviors\Translatable\TranslatableTrait;
 
     /**
      * @ORM\Id

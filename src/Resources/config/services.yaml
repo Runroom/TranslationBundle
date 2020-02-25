@@ -1,6 +1,8 @@
 services:
-    Runroom\TranslationBundle\Service\TranslationService:
+    _defaults:
         public: false
+
+    Runroom\TranslationBundle\Service\TranslationService:
         arguments:
             $translator: '@translator'
             $cache: '@Runroom\TranslationBundle\Service\TranslationCacheService'
@@ -16,7 +18,6 @@ services:
             - kernel.cache_clearer
 
     Runroom\TranslationBundle\Twig\TranslationExtension:
-        public: false
         arguments:
             $service: '@Runroom\TranslationBundle\Service\TranslationService'
         tags: [twig.extension]
