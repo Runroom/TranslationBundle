@@ -17,7 +17,7 @@ use Runroom\TranslationBundle\Service\TranslationService;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFilter;
 
-class TranslationExtension extends AbstractExtension
+final class TranslationExtension extends AbstractExtension
 {
     private $service;
 

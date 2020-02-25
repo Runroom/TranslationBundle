@@ -1,12 +1,13 @@
 services:
-    Runroom\TranslationBundle\Service\TranslationService:
+    _defaults:
         public: false
+
+    Runroom\TranslationBundle\Service\TranslationService:
         arguments:
             $repository: '@Doctrine\ORM\EntityRepository'
             $translator: '@translator'
 
     Runroom\TranslationBundle\Twig\TranslationExtension:
-        public: false
         arguments:
             $service: '@Runroom\TranslationBundle\Service\TranslationService'
         tags: [twig.extension]

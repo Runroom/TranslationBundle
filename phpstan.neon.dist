@@ -1,0 +1,14 @@
+includes:
+    - vendor/phpstan/phpstan/conf/bleedingEdge.neon
+    - vendor/jangregor/phpstan-prophecy/src/extension.neon
+    - vendor/phpstan/phpstan-doctrine/extension.neon
+    - vendor/phpstan/phpstan-phpunit/extension.neon
+    - vendor/phpstan/phpstan-symfony/extension.neon
+    - vendor/phpstan/phpstan-symfony/rules.neon
+
+parameters:
+    ignoreErrors:
+        - '#Call to an undefined method Knp\\DoctrineBehaviors\\Contract\\Entity\\TranslationInterface(.|\n)+#'
+    inferPrivatePropertyTypeFromConstructor: true
+    # checkMissingIterableValueType: false
+    # checkGenericClassInNonGenericObjectType: false

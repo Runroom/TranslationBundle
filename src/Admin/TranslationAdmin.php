@@ -22,7 +22,7 @@ use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Route\RouteCollection;
 use Symfony\Component\Validator\Constraints as Assert;
 
-class TranslationAdmin extends AbstractAdmin
+final class TranslationAdmin extends AbstractAdmin
 {
     protected $datagridValues = [
         '_page' => 1,
