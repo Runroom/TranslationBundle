@@ -10,5 +10,3 @@ parameters:
     ignoreErrors:
         - '#Call to an undefined method Knp\\DoctrineBehaviors\\Contract\\Entity\\TranslationInterface(.|\n)+#'
     inferPrivatePropertyTypeFromConstructor: true
-    # checkMissingIterableValueType: false
-    # checkGenericClassInNonGenericObjectType: false
