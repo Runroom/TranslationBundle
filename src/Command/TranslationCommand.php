@@ -18,7 +18,7 @@ use Runroom\TranslationBundle\Service\TranslationCacheService;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
-use Symfony\Component\Translation\TranslatorInterface;
+use Symfony\Component\Translation\TranslatorBagInterface;
 
 class TranslationCommand extends Command
 {
@@ -30,7 +30,7 @@ class TranslationCommand extends Command
     private $locales;
 
     public function __construct(
-        TranslatorInterface $translator,
+        TranslatorBagInterface $translator,
         TranslationRepository $repository,
         TranslationCacheService $cache,
         array $locales
@@ -59,5 +59,7 @@ class TranslationCommand extends Command
 
         $this->repository->importCatalogues($catalogues);
         $this->cache->warmUpTranslations();
+
+        return 0;
     }
 }

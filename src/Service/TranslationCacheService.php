@@ -15,9 +15,9 @@ namespace Runroom\TranslationBundle\Service;
 
 use Runroom\TranslationBundle\Entity\Translation;
 use Runroom\TranslationBundle\Repository\TranslationRepository;
+use Symfony\Component\Cache\Adapter\PhpArrayAdapter;
 use Symfony\Component\HttpKernel\CacheClearer\CacheClearerInterface;
 use Symfony\Component\HttpKernel\CacheWarmer\CacheWarmerInterface;
-use Symfony\Component\Cache\Adapter\PhpArrayAdapter;
 
 class TranslationCacheService implements CacheWarmerInterface, CacheClearerInterface
 {
