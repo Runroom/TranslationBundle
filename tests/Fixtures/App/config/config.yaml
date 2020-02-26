@@ -2,6 +2,11 @@ framework:
     test: true
     secret: secret
 
+security:
+    firewalls:
+        main:
+            anonymous: lazy
+
 doctrine:
     dbal:
         driver: pdo_sqlite
