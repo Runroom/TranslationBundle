@@ -13,8 +13,8 @@ declare(strict_types=1);
 
 namespace Runroom\TranslationBundle\Tests\Unit;
 
-use Doctrine\ORM\EntityRepository;
 use PHPUnit\Framework\TestCase;
+use Runroom\TranslationBundle\Repository\TranslationRepository;
 use Runroom\TranslationBundle\Service\TranslationService;
 use Runroom\TranslationBundle\Tests\Fixtures\TranslationFixtures;
 use Symfony\Component\Translation\TranslatorInterface;
@@ -27,7 +27,7 @@ class TranslationServiceTest extends TestCase
 
     protected function setUp(): void
     {
-        $this->repository = $this->prophesize(EntityRepository::class);
+        $this->repository = $this->prophesize(TranslationRepository::class);
         $this->translator = $this->prophesize(TranslatorInterface::class);
 
         $this->service = new TranslationService(

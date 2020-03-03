@@ -4,14 +4,15 @@ services:
 
     Runroom\TranslationBundle\Service\TranslationService:
         arguments:
-            $repository: '@Doctrine\ORM\EntityRepository'
+            $repository: '@Runroom\TranslationBundle\Repository\TranslationRepository'
             $translator: '@translator'
+
+    Runroom\TranslationBundle\Repository\TranslationRepository:
+        arguments:
+            $registry: '@doctrine'
+        tags: [doctrine.repository_service]
 
     Runroom\TranslationBundle\Twig\TranslationExtension:
         arguments:
             $service: '@Runroom\TranslationBundle\Service\TranslationService'
         tags: [twig.extension]
-
-    Doctrine\ORM\EntityRepository:
-        factory: ['@Doctrine\ORM\EntityManagerInterface', getRepository]
-        arguments: [Runroom\TranslationBundle\Entity\Translation]
